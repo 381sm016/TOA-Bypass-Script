@@ -1,6 +1,6 @@
 # Visibility State Override
 
-Dit script manipuleert de Page Visibility API en andere browser-events. Hij probeert de `visibilityState` van een document programmatisch te controleren en te voorkomen dat de host status changes detecteert
+Manipuleert de Page Visibility API en andere browser-events. Checkt `visibilityState` van een document programmatisch om te voorkomen dat de host status changes detecteert
 
 ## Technische Implementatie
 
@@ -25,17 +25,10 @@ Om te voorkomen dat de applicatie luistert naar wijzigingen in de zichtbaarheid 
 *   `webkitvisibilitychange`
 *   `blur`
 
-Dit wordt gedaan door een event listener toe te voegen met het `useCapture` argument ingesteld op `true`. De callback roept `e.stopImmediatePropagation()` aan, wat voorkomt dat andere listeners (inclusief die van de applicatie zelf) worden uitgevoerd.
+Dit voegt een event listener toe met het `useCapture` arg ingesteld op `true`. Callback roept `e.stopImmediatePropagation()` aan, zodat andere listeners (inclusief die van de applicatie zelf) worden uitgevoerd.
 
 ```javascript
 document.addEventListener('visibilitychange', function(e) {
     e.stopImmediatePropagation();
 }, true); // <-- true = capture phase
 ```
-
-## Installatie
-
-1.  **Extensie:** Vereist een userscript manager zoals Tampermonkey.
-2.  **Nieuw Script:** Maak een nieuw userscript aan in het dashboard van de manager.
-3.  **Code:** Kopieer de inhoud van `toabypass.js` en plak deze in de editor.
-4.  **Opslaan:** Sla het script op. De `@match` header in het script zorgt voor automatische activering op de juiste websites
