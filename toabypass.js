@@ -2,7 +2,7 @@
 // @name         TOA Test - Disable Tab Detection
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Laat TOA denken dat hij altijd openstaat doormiddel van de webkitvisibilitychange en visibilitychange events te blokkeren
+// @description  Spooft webkitvisibilitychange en visibilitychange events door ze te blokkeren
 // @author       381sm016
 // @match        https://toa.toets.nl/*
 // @grant        none
